@@ -23,11 +23,13 @@ function submitData(userName, userEmail) {
     return fetch("http://localhost:3000/users", configurationObject)
     .then(response => response.json())
     .then(object => {
-        document.body.innerHTML = object["id"];
+        document.body.append(object["id"]);
         console.log(object);
     })
     .catch(error => {
+        document.body.append(error.message);
         console.error(error);
+
     });
 
     
